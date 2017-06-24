@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autobind-decorator": "^1.4.2",
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
@@ -25,7 +26,6 @@
     "nib": "^1.1.2",
     "nunjucks": "^3.0.0",
     "nunjucks-date": "^1.2.0",
-    "pokemon-sprites": "pokeapi/sprites",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
