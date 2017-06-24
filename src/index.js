@@ -35,6 +35,9 @@ app.use(slashes());
 // Routes for App
 routers(app);
 
+app.all('*', (req, res) => {
+  return res.render('core/home');
+});
 
 app.listen(port, () => {
   console.log('Server running at :3000');

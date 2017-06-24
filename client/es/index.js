@@ -23,6 +23,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact path="/" component={PanelLayout} />
+        <Route exact path="/pokemon/:id" component={PanelLayout} />
       </div>
     </Router>
   </Provider>,

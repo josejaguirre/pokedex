@@ -8,6 +8,7 @@ import PokedexDetail from '../components/PokedexDetail';
 
 import {
   fetchPokemonList,
+  fetchPokemon,
 } from '../actions';
 
 @connect(
@@ -16,6 +17,7 @@ import {
   }),
   dispatch => bindActionCreators({
     fetchPokemonList,
+    fetchPokemon,
   }, dispatch),
 )
 
@@ -24,6 +26,7 @@ class PanelLayout extends Component {
     pokemon: PropTypes.object,
     pokemonList: PropTypes.array,
     fetchPokemonList: PropTypes.func,
+    fetchPokemon: PropTypes.func,
   };
 
   componentDidMount() {
@@ -31,6 +34,10 @@ class PanelLayout extends Component {
   }
 
   render() {
+    if (this.props.match.params.id) {
+      console.log('entro aqi');
+      this.props.fetchPokemon(this.props.match.params.id);
+    }
     return (
       <div className="row">
         <PokedexDetail pokemon={this.props.pokemon} />
