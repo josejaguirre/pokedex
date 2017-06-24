@@ -1,3 +1,4 @@
+line-color = #444
 
 .Pokedex
   &__background
@@ -10,6 +11,19 @@
     top 154px
     width 330px
     height 335px
+    text-align center
+
+  &__box-detail-name
+    font-weight bold
+    font-size 20px
+
+  &__box-detail-types
+    text-align left
+
+  &__box-detail-img
+    margin 0 auto
+    width 150px
+    display block
 
   &__box-list
     right -135px
@@ -17,8 +31,16 @@
     width 299px
     height 373px
     overflow scroll
+    background-color white
+    padding 0px
 
   &__box-item
     padding 25px 0px
-    border-bottom 1px solid #333
+    border-bottom 2px solid line-color
     text-align center
+
+  &__box-item-link
+    color line-color
+    font-size 20px
+    font-weight bold
+    cursor pointer

@@ -15,9 +15,21 @@ class PokedexDetail extends Component {
 
   render() {
     const { pokemon } = this.props;
+    if (pokemon.types) {
+      console.log(pokemon.types);
+      pokemon.types.map((type) => {
+        console.log(type.type.name);
+      });
+    }
     return (
       <div className="col-md-6 Pokedex__box-detail">
-        {pokemon && pokemon.id && <img src={`https:\/\/raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />}
+        {pokemon && pokemon.id && <img className="Pokedex__box-detail-img" src={`https:\/\/raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />}
+        {pokemon && pokemon.name && <div className="Pokedex__box-detail-name">{pokemon.name}</div>}
+        <ul>
+          {pokemon && pokemon.types && pokemon.types.map((type) => {
+            return (<li className="Pokedex__box-detail-types" key={`${type.slot}-${type.name}`}>{type.type.name}</li>);
+          })}
+        </ul>
       </div>
     );
   }

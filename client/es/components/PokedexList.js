@@ -41,8 +41,8 @@ class PokedexList extends Component {
     return (
       <div className="col-md-6 Pokedex__box-list">
         {pokemonList && pokemonList.map((pokemon, i) => {
-          return (<div className="Pokedex__box-item">
-            <Link to={`/pokemon/${i + 1}`} key={pokemon.pokemon_species.name} onClick={(e) => this.selectPokemonHandle(e, i + 1, pokemon.pokemon_species.name)}>
+          return (<div key={pokemon.pokemon_species.name} className="Pokedex__box-item">
+            <Link to={`/pokemon/${i + 1}`} onClick={(e) => this.selectPokemonHandle(e, i + 1, pokemon.pokemon_species.name)} className="Pokedex__box-item-link">
               <img src={`https:\/\/raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${i + 1}.png`} />
               <span>{pokemon.pokemon_species.name}</span>
           </Link>
