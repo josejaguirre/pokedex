@@ -22,14 +22,14 @@ class PokedexDetail extends Component {
     fetchPokemon: PropTypes.func,
   };
 
-  render() {
-    const { pokemon } = this.props;
-
+  componentDidMount() {
     if (this.props['0'].match && this.props['0'].match.params && this.props['0'].match.params.id) {
-      console.log('entro aqui con el valor');
-      console.log(this.props['0'].match.params.id);
       this.props.fetchPokemon(this.props['0'].match.params.id);
     }
+  }
+
+  render() {
+    const { pokemon } = this.props;
 
     return (
       <div className="col-md-6 Pokedex__box-detail">
