@@ -10,12 +10,16 @@ import {
 } from 'react-router-dom';
 
 import {
+  fetchPokemonList,
   fetchPokemon,
 } from '../actions';
 
 @connect(
-  state => ({ }),
+  state => ({
+    pokemonList: state.pokemon.pokemonList,
+  }),
   dispatch => bindActionCreators({
+    fetchPokemonList,
     fetchPokemon,
   }, dispatch),
 )
@@ -24,7 +28,12 @@ class PokedexList extends Component {
   static PropTypes = {
     pokemonList: PropTypes.array,
     fetchPokemon: PropTypes.func,
+    fetchPokemonList: PropTypes.func,
   };
+
+  componentDidMount() {
+    this.props.fetchPokemonList();
+  }
 
   @autobind
   selectPokemonHandle(e, id, name) {

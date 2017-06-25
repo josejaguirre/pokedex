@@ -2,25 +2,35 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import {
+  fetchPokemon,
+} from '../actions';
 
 @connect(
   state => ({
     pokemon: state.pokemon.pokemon,
   }),
+  dispatch => bindActionCreators({
+    fetchPokemon,
+  }, dispatch),
 )
 class PokedexDetail extends Component {
   static PropTypes = {
     pokemon: PropTypes.object,
+    fetchPokemon: PropTypes.func,
   };
 
   render() {
     const { pokemon } = this.props;
-    if (pokemon.types) {
-      console.log(pokemon.types);
-      pokemon.types.map((type) => {
-        console.log(type.type.name);
-      });
+
+    if (this.props['0'].match && this.props['0'].match.params && this.props['0'].match.params.id) {
+      console.log('entro aqui con el valor');
+      console.log(this.props['0'].match.params.id);
+      this.props.fetchPokemon(this.props['0'].match.params.id);
     }
+
     return (
       <div className="col-md-6 Pokedex__box-detail">
         {pokemon && pokemon.id && <img className="Pokedex__box-detail-img" src={`https:\/\/raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />}
